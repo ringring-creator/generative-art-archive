@@ -16,7 +16,7 @@ class FormantVocoder {
         c = Csound()
         c.SetOption("-o../out/wav/FormantVocoder.wav")
 
-        val orcFile = File("./src/main/resources/orc/FormantVocoder.orc")
+        val orcFile = File("./src/main/resources/practices/orc/FormantVocoder.orc")
 
         val orc = orcFile.readText()
         println("orc: ")

@@ -18,7 +18,7 @@ class MidiEnsembles {
         c.SetOption("--midioutfile=../out/midi/MidiEnsembles.mid")
 
 
-        val orcFile = File("./src/main/resources/orc/midiSingleChnl.orc")
+        val orcFile = File("./src/main/resources/practices/orc/midiSingleChnl.orc")
 
         val orc = orcFile.readText()
         println("orc: ")

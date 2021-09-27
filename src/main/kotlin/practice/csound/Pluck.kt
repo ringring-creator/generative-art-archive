@@ -16,7 +16,7 @@ class Pluck() {
         //c.SetOption("-odac")
         c.SetOption("-o../out/wav/Pluck.wav")
 
-        val orcFile = File("./src/main/resources/orc/pluck.orc")
+        val orcFile = File("./src/main/resources/practices/orc/pluck.orc")
 
         val orc = orcFile.readText()
         println("orc: ")

@@ -1,5 +1,6 @@
 package practice.csound
 
+import common.CsoundSystem
 import java.io.File
 
 class CsoundFloss(outDac: Boolean, outputFilePath: String) {
@@ -11,7 +12,7 @@ class CsoundFloss(outDac: Boolean, outputFilePath: String) {
     }
 
     fun setupDbVersusAmp() {
-        val orcFile = File("./src/main/resources/orc/csoundFloss.orc")
+        val orcFile = File("./src/main/resources/practices/orc/csoundFloss.orc")
         val orc = orcFile.readText()
         c.compileOrc(orc)
         val scoBuilder = StringBuilder()
@@ -37,7 +38,7 @@ class CsoundFloss(outDac: Boolean, outputFilePath: String) {
     }
 
     fun setupOpeCheck() {
-        val orcFile = File("./src/main/resources/orc/csoundFloss.orc")
+        val orcFile = File("./src/main/resources/practices/orc/csoundFloss.orc")
         val orc = orcFile.readText()
         c.compileOrc(orc)
         val scoBuilder = StringBuilder()

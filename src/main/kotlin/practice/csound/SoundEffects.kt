@@ -1,5 +1,6 @@
 package practice.csound
 
+import common.CsoundSystem
 import java.io.File
 
 class SoundEffects(outDac: Boolean, outputFilePath: String) {
@@ -11,7 +12,7 @@ class SoundEffects(outDac: Boolean, outputFilePath: String) {
     }
 
     fun setupBassDrum() {
-        val orcFile = File("./src/main/resources/orc/midiSingleChnl.orc")
+        val orcFile = File("./src/main/resources/practices/orc/midiSingleChnl.orc")
         val orc = orcFile.readText()
         c.compileOrc(orc)
         val scoBuilder = StringBuilder()
@@ -25,7 +26,7 @@ class SoundEffects(outDac: Boolean, outputFilePath: String) {
     }
 
     fun setupSoundEffects() {
-        val orcFile = File("./src/main/resources/orc/soundEffects.orc")
+        val orcFile = File("./src/main/resources/practices/orc/soundEffects.orc")
 
         val orc = orcFile.readText()
         println("orc: ")

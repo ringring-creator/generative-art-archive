@@ -16,7 +16,7 @@ class AddOvertones() {
         //c.SetOption("-odac")
         c.SetOption("-o../out/wav/AddOvertones.wav")
 
-        val orcFile = File("./src/main/resources/orc/Chord.orc")
+        val orcFile = File("./src/main/resources/practices/orc/Chord.orc")
 
         val orc = orcFile.readText()
         println("orc: ")

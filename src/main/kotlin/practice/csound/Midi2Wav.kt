@@ -18,7 +18,7 @@ class Midi2Wav(val midiFilepath: String) {
         //c.SetOption("-odac")
         c.SetOption("-o${midiFilepath}.wav")
 
-        val orcFile = File("./src/main/resources/orc/midi2wav.orc")
+        val orcFile = File("./src/main/resources/practices/orc/midi2wav.orc")
 
         val orc = orcFile.readText()
         println("orc: ")
