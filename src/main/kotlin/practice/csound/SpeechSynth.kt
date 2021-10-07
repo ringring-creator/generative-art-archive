@@ -87,10 +87,15 @@ class SpeechSynth(outDac: Boolean, outputFilePath: String) {
         c.compileOrc(orc)
         val scoBuilder = StringBuilder()
         var currentTime = 0.0
-        var duration = 8.0
+        var duration = 16.0
         //Abbreviated notation
-        scoBuilder.appendLine("i \"aToZ\" ${currentTime} ${duration}")
-        //scoBuilder.appendLine("i \"pvsanalInstr\" ${currentTime} ${duration}")
+        scoBuilder.appendLine("i \"playOscilInstr\" ${currentTime} ${duration}")
+        currentTime += duration
+        scoBuilder.appendLine("i \"playPvsanalInstr\" ${currentTime} ${duration}")
+        currentTime += duration
+        scoBuilder.appendLine("i \"playPvscrossInstr\" ${currentTime} ${duration}")
+        currentTime += duration
+        scoBuilder.appendLine("i \"playCross2Instr\" ${currentTime} ${duration}")
         currentTime += duration
         scoBuilder.appendLine("e")
 
@@ -109,7 +114,7 @@ fun main() {
     /*var csoundIntro = SpeechSynth(false, "../out/wav/vocoder.wav")
     csoundIntro.setupVocoder()
     csoundIntro.run()*/
-    var csoundIntro = SpeechSynth(true, "../out/wav/phaseVocoder.wav")
+    var csoundIntro = SpeechSynth(false, "../out/wav/phaseVocoder.wav")
     csoundIntro.setupPhaseVocoder()
     csoundIntro.run()
 }
