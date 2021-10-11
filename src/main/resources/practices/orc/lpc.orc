@@ -11,6 +11,11 @@ gamodL, gamodR       soundin  "../in/wav/a-z.wav" ; modulation signals
 outs gamodL, gamodR
 endin
 
+instr nightingale
+gaportL, gaportR     soundin  "../in/wav/nightingale.wav" ; career signals
+outs gaportL, gaportR
+endin
+
 
 ; Linear Prediction Coding
 ; The number of poles is filter dimensions
@@ -27,4 +32,14 @@ abuzz                       buzz        krmso/32767, kcps*p5, 60, giSine
 abuzz                       butterlp   abuzz, 2000
 ares                        lpreson     abuzz
 outs    ares, ares
+endin
+
+instr lpcFilter
+gamod, gamodR       soundin  "../in/wav/a-z.wav" ; modulation signals
+gaport, gaportR     soundin  "../in/wav/nightingale.wav" ; career signals
+
+aext        butterbp    gaport, p4, p4 * 0.05   ; analysis filter
+aport       butterbp    gamod, p4, p4 * 0.05   ; synthsis filter
+ares        balance     aport, aext
+outs        ares * 5, ares * 5
 endin
