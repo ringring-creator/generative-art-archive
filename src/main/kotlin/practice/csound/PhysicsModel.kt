@@ -63,15 +63,21 @@ class PhysicsModel(outDac: Boolean, outputFilePath: String) {
         var currentTime = 0.0
         var duration = 10.0
         //Abbreviated notation
-        /*scoBuilder.appendLine("i \"waveguideInstr\" ${currentTime} ${duration}")
+        scoBuilder.appendLine("i \"waveguideInstr\" ${currentTime} ${duration}")
         currentTime += duration
         scoBuilder.appendLine("i \"waveguide2Instr\" ${currentTime} ${duration}")
-        currentTime += duration*/
+        currentTime += duration
         duration = 16.0
         scoBuilder.appendLine("i \"playWgbowInstr\" ${currentTime} ${duration}")
         currentTime += duration
         scoBuilder.appendLine("i \"playWgbrassInstr\" ${currentTime} ${duration}")
         currentTime += duration
+        scoBuilder.appendLine("i \"playWgclarInstr\" ${currentTime} ${duration}")
+        currentTime += duration
+        scoBuilder.appendLine("i \"playWgfluteInstr\" ${currentTime} ${duration}")
+        currentTime += duration
+
+
 
         scoBuilder.appendLine("e")
 
@@ -83,10 +89,10 @@ class PhysicsModel(outDac: Boolean, outputFilePath: String) {
 }
 
 fun main() {
-    /*var csoundIntro = PhysicsModel(false, "../out/wav/ksOps.wav")
+    var csoundIntro = PhysicsModel(false, "../out/wav/ksOps.wav")
     csoundIntro.setupKsOps()
-    csoundIntro.run()*/
-    var csoundIntro = PhysicsModel(true, "../out/wav/waveguide.wav")
+    csoundIntro.run()
+    csoundIntro = PhysicsModel(false, "../out/wav/waveguide.wav")
     csoundIntro.setupWaveguide()
     csoundIntro.run()
 }
