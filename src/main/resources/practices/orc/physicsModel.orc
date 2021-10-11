@@ -140,3 +140,53 @@ while   index < lenarray(giNoteNumber) do
     index  +=   1
 od
 endin
+
+instr wgclarInstr   ; Clarinet
+kamp        =        0.75
+kfreq       =        p4
+kstiff      =        -0.3    ; Mouthpiece hardness
+iatt        =        0.1     ; Time to reach maximum time
+idetk       =        0.1     ; Breath duration
+kngain      =        0.1     ; amplitude of noise
+kvibf       =        0.2     ; frequency of vibrato
+kvamp       =        0.05    ; amplitude of vibrato
+ares        wgclar      kamp, kfreq,kstiff, iatt, idetk, kngain, kvibf, kvamp, giSine
+            outs        ares, ares
+endin
+
+instr playWgclarInstr
+index   =   0
+iStart  =   0
+iDur    =   2
+while   index < lenarray(giNoteNumber) do
+    iFreq   =   mtof:i(giNoteNumber[index])
+    schedule "wgbrassInstr", iStart, iDur, iFreq
+    iStart +=   iDur
+    index  +=   1
+od
+endin
+
+instr wgfluteInstr           ; flute
+kamp        =        0.75
+kfreq       =        p4
+kjet        =        0.3     ; Air gush
+iatt        =        0.1     ; Time to reach maximum time
+idetk       =        0.1     ; Breath duration
+kngain      =        0.1     ; amplitude of noise
+kvibf       =        0.2     ; frequency of vibrato
+kvamp       =        0.05    ; amplitude of vibrato
+ares        wgflute      kamp, kfreq, kjet, iatt, idetk, kngain, kvibf, kvamp, giSine
+            outs        ares, ares
+endin
+
+instr playWgfluteInstr
+index   =   0
+iStart  =   0
+iDur    =   2
+while   index < lenarray(giNoteNumber) do
+    iFreq   =   mtof:i(giNoteNumber[index])
+    schedule "wgfluteInstr", iStart, iDur, iFreq
+    iStart +=   iDur
+    index  +=   1
+od
+endin
